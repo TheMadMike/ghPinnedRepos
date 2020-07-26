@@ -1,10 +1,10 @@
 from flask import Flask
 from flask.json import jsonify
-app = Flask(__name__)
+application = Flask(__name__)
 
 from .scraper.scrape import scrape_for_names
 
-@app.route('/<username>', methods=['GET'])
+@application.route('/<username>', methods=['GET'])
 def get_pinned_repo_names(username):
     url = f'https://github.com/{username}/'
     names = scrape_for_names(url)
